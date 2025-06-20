@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emoji Memory Match</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 🔮 Blurred Background -->
+  <div class="background-blur"></div>
+
+  <!-- 🎮 Game UI -->
+  <div class="game-wrapper">
+
+    <!-- 🎯 Difficulty Panel -->
+    <div class="difficulty-panel">
+      <h2>Difficulty</h2>
+      <label>
+        <input type="radio" name="difficulty" value="easy" id="easyBtn" checked>
+        Easy (4×4)
+      </label>
+      <label>
+        <input type="radio" name="difficulty" value="hard" id="hardBtn">
+        Hard (8×8)
+      </label><br>
+      <button id="restartBtn" class="reset-button">🔁 Restart Game</button>
+    </div>
+
+    <!-- 🧠 Game Board -->
+    <div class="container-wrapper">
+      <div class="logo">🧠 MEMORY <span>MATCH</span></div>
+      <div class="title">Choose the boxes carefully:</div><br>
+      <div class="container" id="container"></div>
+    </div>
+
+    <!-- 📊 Score Panel -->
+    <div class="score-panel">
+      <h2>Score</h2>
+      <p>Moves: <span id="moveCount">0</span></p>
+      <p>Matches: <span id="matchCount">0</span></p>
+      <p>Score: <span id="scorePoint">10</span>/10</p>
+      <div id="winMessage" style="display:none; color: green; font-weight: bold; font-size: 18px;">🎉 You won!</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

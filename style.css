@@ -1,0 +1,213 @@
+/* 🌄 Blurred Background */
+.background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+/* 🖼 Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* 🎮 Center Game Wrapper */
+.game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+}
+
+/* 🧠 Centered Game Board */
+.container-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 🎯 Title */
+.title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* 🧩 Grid Layout */
+.container {
+  display: grid;
+  gap: 15px;
+  justify-content: center;
+}
+
+.container.easy {
+  grid-template-columns: repeat(4, 60px);
+}
+
+.container.hard {
+  grid-template-columns: repeat(8, 60px);
+}
+
+/* 🧊 Box Style */
+.box {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 🌀 Flick Effect */
+.box:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 🙈 Hidden Boxes */
+.box:not(.revealed) {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: transparent;
+}
+
+/* 🎯 Top-Left: Difficulty Panel */
+.difficulty-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* 📊 Top-Right: Score Panel */
+.score-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+/* 🎉 Win message */
+#winMessage {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+  font-size: 18px;
+}
+
+/* 🎮 Reset Button Styling */
+.reset-button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reset-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+  .difficulty-panel,
+  .score-panel {
+    position: static;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .game-wrapper {
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: auto;
+  }
+
+  .container.hard {
+    grid-template-columns: repeat(6, 50px);
+    gap: 10px;
+  }
+
+  .box {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .reset-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* 🎨 Game Logo Styling */
+.logo {
+  font-size: 38px;
+  font-weight: 800;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+  animation: flicker 2s infinite alternate ease-in-out;
+}
+
+.logo span {
+  color: #ffd700; /* gold for "MATCH" */
+  text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.6);
+}
+
+/* ✨ Flicker Animation */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.015);
+  }
+}
